@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+    <link href='https://fonts.googleapis.com/css?family=Akronim' rel='stylesheet'>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #c3a05f;
+            font-family: Helvetica, sans-serif;
+        }
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline1 {
+            position: relative;
+            max-width: 800px;
+            margin: 60px auto;
+        }
+
+            /* The actual timeline (the vertical ruler) */
+            .timeline1::after {
+                content: '';
+                position: absolute;
+                width: 6px;
+                background-color: white;
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                margin-left: -3px;
+            }
+
+        /* Container around content */
+        .container2 {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+            /* The circles on the timeline */
+            .container2::after {
+                content: '';
+                position: absolute;
+                width: 25px;
+                height: 25px;
+                right: -17px;
+                background-color: white;
+                border: 4px solid #FF9F55;
+                top: 15px;
+                border-radius: 50%;
+                z-index: 1;
+            }
+
+        /* Place the container to the left */
+        .left {
+            left: 0;
+        }
+
+        /* Place the container to the right */
+        .right {
+            left: 50%;
+        }
+
+        /* Add arrows to the left container (pointing right) */
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+
+        /* Add arrows to the right container (pointing left) */
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        /* Fix the circle for containers on the right side */
+        .right::after {
+            left: -12px;
+        }
+
+        .left::after {
+            right: -14px;
+        }
+        /* The actual content */
+        .content1 {
+            padding: 15px 50px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+        }
+
+        /* Media queries - Responsive timeline on screens less than 600px wide */
+        @media screen and (max-width: 600px) {
+            /* Place the timelime to the left */
+            .timeline1::after {
+                left: 31px;
+            }
+
+            /* Full-width containers */
+            .container2 {
+                width: 90%;
+                padding-left: 50px;
+                padding-right: 25px;
+            }
+
+                /* Make sure that all arrows are pointing leftwards */
+                .container2::before {
+                    left: 60px;
+                    border: medium solid white;
+                    border-width: 10px 10px 10px 0;
+                    border-color: transparent white transparent transparent;
+                }
+
+            /* Make sure all circles are at the same spot */
+            .left::after, .right::after {
+                left: 15px;
+            }
+
+            /* Make all right containers behave like the left ones */
+            .right {
+                left: 0%;
+            }
+        }
+
+        .column1 {
+            float: left;
+            width: 50%;
+            padding: 10px;
+            height: 300px; /* Should be removed. Only for demonstration */
+        }
+
+        /* Clear floats after the columns */
+        .row1:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column1 {
+                width: 100%;
+            }
+        }
+
+        img:hover {
+            transform: translateY(-10px);
+        }
+
+        .responsive {
+            width: 50%;
+            height: 40%;
+        }
+
+        .container1 {
+            position: relative;
+            text-align: center;
+            color: white;
+            font-size: 5vw;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+
+
+        .texting {
+            color: white;
+            font-family: 'Raleway',sans-serif;
+            word-spacing: 10px;
+            line-height: 1.72;
+            font-size: 2vw;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        .header {
+            overflow: hidden;
+            background-color: rgba(0,0,0,0.5);
+            padding: 20px 10px;
+        }
+
+            .header a {
+                float: left;
+                color: white;
+                text-align: center;
+                padding: 15px;
+                text-decoration: none;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: 13px;
+                border-radius: 4px;
+            }
+
+                .header a.logo {
+                    font-size: 70px;
+                    font-family: 'Akronim';
+                }
+
+                .header a:hover {
+                    background-color: rgba(0,0,0,0);
+                    color: white;
+                }
+
+
+
+        .header-right {
+            float: right;
+        }
+
+        @media screen and (max-width: 500px) {
+            .header a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+
+            .header-right {
+                float: none;
+            }
+        }
+
+        .tr {
+            height: 500px;
+        }
+
+        td {
+            padding: 100px;
+            vertical-align: top;
+        }
+
+        .btn {
+            border-radius: 5px;
+            background-color: orange;
+            padding: 9px 9px;
+            margin: 10px;
+            font-size: 15px;
+        }
+
+        .fa {
+            padding: 20px;
+            font-size: 20px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin: 2px 2px;
+            border-radius: 50%;
+        }
+
+            .fa:hover {
+                opacity: 0.7;
+            }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+        .fa-google {
+            background: #dd4b39;
+            color: white;
+        }
+
+        .fa-linkedin {
+            background: #007bb5;
+            color: white;
+        }
+
+        .fa-youtube {
+            background: #bb0000;
+            color: white;
+        }
+
+        .fa-instagram {
+            background: #125688;
+            color: white;
+        }
+
+        .fa-pinterest {
+            background: #cb2027;
+            color: white;
+        }
+
+        .fa-snapchat-ghost {
+            background: #fffc00;
+            color: white;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+
+        footer {
+            text-align: center;
+            background-color: rgba(0,0,0,0);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="#" class="logo">Barfis</a>
+        <div class="header-right">
+            <a href="home.html">Home</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="aboutus.html">About Us</a>
+        </div>
+
+    </div>
+    <div class="row1">
+        <div class="column1">
+            <br /> <br /> <br /> <br /> <img src="https://photos.tripsite.com/assets/files/3356/jaipur-palace-of-winds-hawa-mahal-rajasthan-india-bike-tour-fltraviswise.962x500.webp" align="middle" style="width:500px;height:300px;" />
+        </div>
+
+
+        <div class="column1" style="text-align:center;color:white;height:350px;word-spacing:2px">
+            <p style="font-size:19px;">
+                <br /> <br /> <br /> <br />The land of Maharajas, lakes, grace, emotions, adventure, and vibrancy, Rajasthan with its
+                royal essence welcomes you with all its heart. "Khamma Ghani", it says, and has the beauty
+                that never betrays. Rajasthan is a magical land full of cheerfulness and quintessential charm.
+                In the era where development has taken over, the state remains truthful to its roots and customs.
+                In every street you will find a new ritual, in every face, you'll see an acquaintance. It is a land
+                that showers you with love and a melting pot of multiple religions that is meant to be visited once a lifetime.
+
+            </p>
+        </div>
+    </div>
+
+    <br /> <br /> <br /> <br /> <br /> <br /> <br />
+
+
+    <div class="timeline1">
+        <div class="container2 left">
+            <div class="content1">
+                <h2>udaipur</h2>
+                <img src="http://www.tourism.rajasthan.gov.in/content/dam/rajasthan-tourism/english/city/explore/221.jpg" style="width: 100%;
+        height:35%">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='udaipur.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 right">
+            <div class="content1">
+                <h2>Mount abu</h2>
+                <img src="https://ihplb.b-cdn.net/wp-content/uploads/2011/02/Mount-Abu.jpg" style="width: 100%;height: 35%">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='mtabu.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 left">
+            <div class="content1">
+                <h2>Jodhpur</h2>
+                <img src="https://img.traveltriangle.com/blog/wp-content/uploads/2018/01/Cover13.jpg" style=" width: 100%;
+        height: 35%" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='jodhpur.html'"
+                       value='EXPLORE'>
+                ">
+
+            </div>
+        </div>
+        <div class="container2 right">
+            <div class="content1">
+                <h2>Bikaner</h2>
+                <img src="https://www.rajasthandirect.com/wp-content/uploads/2013/01/Bikaner.jpg" style="width :100%;
+             height: 35% " />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='bikaner.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 left">
+            <div class="content1">
+                <h2>Pushkar</h2>
+                <img src="https://static2.tripoto.com/media/filter/tst/img/1/SpotDocument/1474616632_28450028.jpg" style="width:100%;height:35%">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='pushkar.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 right">
+            <div class="content1">
+                <h2>Chittorgarh</h2>
+                <img src="https://www.holidify.com/images/bgImages/CHITTORGARH.jpg" style="width:100%;height:35%">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='chittorgarh.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+
+        <div class="container2 left">
+            <div class="content1">
+                <h2>kota</h2>
+                <img src="https://img.traveltriangle.com/blog/wp-content/uploads/2020/01/Jag-Mandir-Palace0310Kota.jpg" style="width:100%;height:35%">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='kota.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 right">
+            <div class="content1">
+                <h2>Bundi</h2>
+                <img src="https://images.squarespace-cdn.com/content/v1/5a3bb03b4c326d76de73ddaa/1562600804091-GXE0MZC0PMI5ESO3J52P/ke17ZwdGBToddI8pDm48kCpX2mwG9slVUzQCwhOMrQF7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UVDXM9yQ8sG6x3COIEUaadqpk9XPubC0H4MH9Az_c7nPqIjSxZ2rgD2_Fw9U6DWfsg/The_Common_Wanderer_bundi_things_to_do-12.jpg" style=" width: 100%;
+                     height: 35% " />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='bundi.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 left">
+            <div class="content1">
+                <h2>Alwar</h2>
+                <img src="https://i.pinimg.com/564x/1d/e9/43/1de943e094c0544fbece04a6f8256be1.jpg" style="width:100%;height:35%">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='alwar.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 right">
+            <div class="content1">
+                <h2>Jaipur</h2>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNYOHWdSX259u_os-6BA0yJxGrgy86zc4Lng&usqp=CAU" style=" width: 100%;
+                     height: 35% " />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='jaipur.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        
+
+    </div>
+    <footer>
+        <p>
+            <h3>Connect with us: </h3>
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-google"></a>
+            <a href="#" class="fa fa-linkedin"></a>
+            <a href="#" class="fa fa-youtube"></a>
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-pinterest"></a>
+            <a href="#" class="fa fa-snapchat-ghost"></a>
+
+        </p>
+    </footer>
+
+
+</body>
+</html>

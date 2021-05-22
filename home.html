@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Burfis</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Akronim&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*custom properties*/
+:root{
+  --dark-color:#2d2c2c;
+  --purple-solid:#358a4f;
+  --purple-transparent:rgba(53, 18, 79, .7);
+  --purple-transparent-alt:rgba(53, 18, 79, .5);
+  --violet-light:#c471ed;
+  --blue-solid:#12c2e9;
+  --red-light:#f64f59;
+  --gradient-color:linear-gradient(to right, var(--blue-solid),var(--violet-light),var(--red-light));
+  --gradient-color-alt:linear-gradient(to right,var(--violet-light),var(--blue-solid),var(--red-light));
+ --form-color:#483D8B
+}
+body{
+  background-color:white;
+  }
+
+.main{
+  position: absolute;
+  top:40%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+
+
+input{
+  border: 3px solid #fff;
+  height: 45px;
+  width: 450px;
+  border-radius: 50px;
+  padding: 0px 10px;
+  font-size: 15px;
+}
+.name{
+  
+  font-weight:bold;
+  text-align:center;
+  justify-content:center;
+  top:40%;
+  color:white;
+  }
+  .caption{
+  font-size:2rem;
+    font-weight:bold;
+    text-align:center;
+  justify-content:center;
+    top:50%;
+  }
+    .head {
+        overflow: hidden;
+        background-color: rgba(0,0,0,0.5);
+        padding: 20px 10px;
+    }
+
+        .head a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 13px;
+            border-radius: 4px;
+        }
+
+            .head a.logo {
+                font-size: 70px;
+                font-family: 'Akronim';
+            }
+
+            .head a:hover {
+                background-color: rgba(0,0,0,0);
+                color: white;
+            }
+
+
+
+    .header-right1 {
+        float: right;
+    }
+
+    @media screen and (max-width: 500px) {
+        .head a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+
+        .header-right1 {
+            float: none;
+        }
+    }
+</style>
+</head>
+<body>
+    <main>
+        <div class="head">
+            <a href="#" class="logo">Barfis</a>
+            <input type="text" name="box" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome">
+            <div class="header-right1">
+                <a href="home.html">Home</a>
+                <a href="contactus.html">Contact Us</a>
+                <a href="aboutus.html">About Us</a>
+            </div>
+
+        </div>
+
+       
+
+            
+
+    </main>
+<div class="container">
+  
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      <div class="item active">
+          <a href="kerala.html"><img src="kerala2.jpg" alt="Los Angeles" style="width:100%;height:90%"></a>
+        <div class="carousel-caption">
+          
+          <h1 class="name">Kerala</h1>
+         
+          <p class="caption">welcome to the city of god!</p>
+        </div>
+      </div>
+
+      <div class="item">
+          <a href="tamilnadu.html">
+              <img src="https://images.outlookindia.com/public/uploads/articles/2020/8/18/Meenakshi_Amman_Temple,_Madurai.jpg" alt="Chicago" style="width:100%;height:90%"></a>
+              <div class="carousel-caption">
+
+                  <h1 class="name">Tamilnadu</h1>
+
+                  <p class="caption">Tamil Nadu tourism an enthralling experience!</p>
+              </div>
+</div>
+    <div class="item">
+        <a href="telangana.html">
+            <img src="https://www.treebo.com/blog/wp-content/uploads/2018/05/17-Places-To-Visit-In-And-Around-Hyderabad-For-One-Day.jpg" alt="Chicago" style="        width: 100%;
+        height: 90%"></a>
+            <div class="carousel-caption">
+                <a href="telangana.html">
+                    <h1 class="name">Telangana</h1>
+                </a>
+                <p class="caption">welcome to the city of pearls!</p>
+            </div>
+</div>
+  
+   
+    <div class="item">
+        <a href="rajasthan.html">
+            <img src="rajasthan.jpg" alt="New York" style="        width: 100%;
+        height: 90%"></a>
+            <div class="carousel-caption">
+                <a href="rajasthan.html">
+                    <h1 class="name">Rajasthan</h1>
+                </a>
+                <p class="caption">Welcome to the Land of Kings!</p>
+            </div>
+</div>
+  
+   
+  <div class="item">
+      <a href="karnataka.html">
+          <img src="https://wallpaperaccess.com/full/1982084.jpg" alt="New York" style="        width: 100%;
+        height: 90%"></a>
+          <div class="carousel-caption">
+              <a href="karnataka.html">
+                  <h1 class="name">Karnataka</h1>
+              </a>
+              <p class="caption">Udayavagali namma cheluva kannada nadu!</p>
+          </div>
+</div>
+  
+    </div>
+  
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"> </span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+</body>
+</html>
