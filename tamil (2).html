@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+    <link href='https://fonts.googleapis.com/css?family=Akronim' rel='stylesheet'>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #CC9999;
+            font-family: Helvetica, sans-serif;
+        }
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline1 {
+            position: relative;
+            max-width: 800px;
+            margin: 60px auto;
+        }
+
+            /* The actual timeline (the vertical ruler) */
+            .timeline1::after {
+                content: '';
+                position: absolute;
+                width: 6px;
+                background-color: white;
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                margin-left: -3px;
+            }
+
+        /* Container around content */
+        .container2 {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+            /* The circles on the timeline */
+            .container2::after {
+                content: '';
+                position: absolute;
+                width: 25px;
+                height: 25px;
+                right: -17px;
+                background-color: white;
+                border: 4px solid #FF9F55;
+                top: 15px;
+                border-radius: 50%;
+                z-index: 1;
+            }
+
+        /* Place the container to the left */
+        .left {
+            left: 0;
+        }
+
+        /* Place the container to the right */
+        .right {
+            left: 50%;
+        }
+
+        /* Add arrows to the left container (pointing right) */
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+
+        /* Add arrows to the right container (pointing left) */
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        /* Fix the circle for containers on the right side */
+        .right::after {
+            left: -12px;
+        }
+
+        .left::after {
+            right: -14px;
+        }
+        /* The actual content */
+        .content1 {
+            padding: 15px 50px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+        }
+
+        /* Media queries - Responsive timeline on screens less than 600px wide */
+        @media screen and (max-width: 600px) {
+            /* Place the timelime to the left */
+            .timeline1::after {
+                left: 31px;
+            }
+
+            /* Full-width containers */
+            .container2 {
+                width: 90%;
+                padding-left: 50px;
+                padding-right: 25px;
+            }
+
+                /* Make sure that all arrows are pointing leftwards */
+                .container2::before {
+                    left: 60px;
+                    border: medium solid white;
+                    border-width: 10px 10px 10px 0;
+                    border-color: transparent white transparent transparent;
+                }
+
+            /* Make sure all circles are at the same spot */
+            .left::after, .right::after {
+                left: 15px;
+            }
+
+            /* Make all right containers behave like the left ones */
+            .right {
+                left: 0%;
+            }
+        }
+
+        .column1 {
+            float: left;
+            width: 50%;
+            padding: 10px;
+            height: 300px; /* Should be removed. Only for demonstration */
+        }
+
+        /* Clear floats after the columns */
+        .row1:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column1 {
+                width: 100%;
+            }
+        }
+
+        img:hover {
+            transform: translateY(-10px);
+        }
+
+        .responsive {
+            width: 50%;
+            height: 40%;
+        }
+
+        .container1 {
+            position: relative;
+            text-align: center;
+            color: white;
+            font-size: 5vw;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+
+
+        .texting {
+            color: white;
+            font-family: 'Raleway',sans-serif;
+            word-spacing: 10px;
+            line-height: 1.72;
+            font-size: 2vw;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        .header {
+            overflow: hidden;
+            background-color: rgba(0,0,0,0.5);
+            padding: 20px 10px;
+        }
+
+            .header a {
+                float: left;
+                color: white;
+                text-align: center;
+                padding: 15px;
+                text-decoration: none;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: 13px;
+                border-radius: 4px;
+            }
+
+                .header a.logo {
+                    font-size:70px;
+                    font-family: 'Akronim';
+                }
+
+                .header a:hover {
+                    background-color: rgba(0,0,0,0);
+                    color: white;
+                }
+
+
+
+        .header-right {
+            float: right;
+        }
+
+        @media screen and (max-width: 500px) {
+            .header a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+
+            .header-right {
+                float: none;
+            }
+        }
+
+        .tr {
+            height: 500px;
+        }
+
+        td {
+            padding: 100px;
+            vertical-align: top;
+        }
+
+        .btn {
+            border-radius: 5px;
+            background-color: orange;
+            padding: 9px 9px;
+            margin: 10px;
+            font-size: 15px;
+        }
+
+        .fa {
+            padding: 20px;
+            font-size: 20px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin: 2px 2px;
+            border-radius: 50%;
+        }
+
+            .fa:hover {
+                opacity: 0.7;
+            }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+        .fa-google {
+            background: #dd4b39;
+            color: white;
+        }
+
+        .fa-linkedin {
+            background: #007bb5;
+            color: white;
+        }
+
+        .fa-youtube {
+            background: #bb0000;
+            color: white;
+        }
+
+        .fa-instagram {
+            background: #125688;
+            color: white;
+        }
+
+        .fa-pinterest {
+            background: #cb2027;
+            color: white;
+        }
+
+        .fa-snapchat-ghost {
+            background: #fffc00;
+            color: white;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+
+        footer {
+            text-align: center;
+            background-color:rgba(0,0,0,0.5);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="#" class="logo">Barfis</a>
+        <div class="header-right">
+            <a href="#home">Home</a>
+            <a href="#contact">Contact Us</a>
+            <a href="#about">About Us</a>
+        </div>
+        
+    </div>
+    <div class="row1">
+        <div class="column1">
+            <br /> <br /> <br /> <br />            <img src="https://th.bing.com/th/id/OIP.cdopxHaF5G6KaiqZe-22PQHaE7?w=276&h=184&c=7&o=5&dpr=1.25&pid=1.7" align="middle" style="width:500px;height:300px;" />
+        </div>
+
+
+        <div class="column1" style="text-align:center;color:white;height:350px;word-spacing:2px">
+            <p style="font-size:19px;">
+                <br /> <br /> <br /> <br /><br /><br />
+                Tamil Nadu a beautiful destination to explore and experience our past cultural heritage with all the amenities of the present.
+                Lying along the Bay of Bengal, Tamil Nadu has a glorious history that spans to a millennium and a present, 
+                that is paving a way for it in becoming one of the most promising states in the country. This state has seen 
+                the rise and fall of many dynasties such as the Cholas, the Cheras and the Pallavas. Each dynasty has enriched the place with its customs and traditions.
+            </p>
+        </div>
+    </div>
+
+    <br /> <br /> <br /> <br /> <br /> <br /> <br />
+
+
+    <div class="timeline1">
+        <div class="container2 left">
+            <div class="content1">
+                <h2>Coimbatore</h2>
+                <img src="data:image/jpeg;base64,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" style="width: 100%;
+        height:35%">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='all.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 right">
+            <div class="content1">
+                <h2>Vellore</h2>
+                <img src="https://th.bing.com/th/id/OIP.EqNZjBIQICDrRisD2J8zagHaDt?w=349&h=175&c=7&o=5&dpr=1.25&pid=1.7" style="width: 100%;height: 35%">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='munnar.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 left">
+            <div class="content1">
+                <h2>Coonor</h2>
+                <img src="https://i0.wp.com/www.manjulikapramod.com/wp-content/uploads/2018/02/Coonor-station-Niligiri-Mountain-Railways.jpg " style=" width: 100%;
+        height: 35%" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='kumarakom.html'"
+                       value='EXPLORE'>
+                ">
+
+            </div>
+        </div>
+        <div class="container2 right">
+            <div class="content1">
+                <h2>Madurai</h2>
+                <img src="https://i.pinimg.com/originals/dc/f6/c5/dcf6c5a88d4b099c736eadd7439d64b4.jpg" style="width :100%;
+             height: 35% " />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='wayanad.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 left">
+            <div class="content1">
+                <h2>Kanyakumari</h2>
+                <img src="https://www.holidify.com/images/bgImages/KANYAKUMARI.jpg " style="width:100%;height:35%">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='thekkady.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 right">
+            <div class="content1">
+                <h2>Rameshwaram</h2>
+                <img src="https://www.holidify.com/images/bgImages/RAMESWARAM.jpg" style="width:100%;height:35%">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='kovalam.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 left">
+            <div class="content1">
+                <h2>Danuskodi</h2>
+                <img src="https://smedia2.intoday.in/indiatoday/images/stories/2016September/mos-wiki-picsnapr_092616053537.jpg" style=" width: 100%;
+                     height: 35% " />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='vagamon.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 right">
+            <div class="content1">
+                <h2>Chennai</h2>
+                <img src="https://image3.mouthshut.com/images/imagesp/925004348s.jpg " style="width:100%;height:35%">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='bekal.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 left">
+            <div class="content1">
+                <h2>Kodaikanal</h2>
+                <img src="https://images.thrillophilia.com/image/upload/s--Nq50I61r--/c_fill,g_center,h_450,q_auto,w_753/dpr_1.0,f_auto,fl_strip_profile/v1/images/photos/000/124/288/original/1527059926_wp2060719.jpg.jpg" style=" width: 100%;
+                     height: 35% " />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='kozhikode.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 right">
+            <div class="content1">
+                <h2>Thanjavur</h2>
+                <img src="https://i.pinimg.com/originals/85/28/8e/85288e1478127faa6b4bb6ade44dfe11.jpg" style="width:100%;height:35%">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='ponmudi.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+        <div class="container2 left">
+            <div class="content1">
+                <h2>Trichy</h2>
+                <img src="https://uniquetimes.org/wp-content/uploads/2018/05/ROCKFORT_TEMPLE_Trichy.jpg" style=" width: 100%;
+                     height: 35% " />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type=button class="btn" onClick="location.href='cochin.html'"
+                       value='EXPLORE'>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>
+            <h3>Connect with us: </h3>
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-google"></a>
+            <a href="#" class="fa fa-linkedin"></a>
+            <a href="#" class="fa fa-youtube"></a>
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-pinterest"></a>
+            <a href="#" class="fa fa-snapchat-ghost"></a>
+
+        </p>
+    </footer>
+
+
+</body>
+</html>
