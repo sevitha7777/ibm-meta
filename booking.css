@@ -251,8 +251,9 @@ font-family: "Open Sans",sans-serif;
     color: #a5a5a5;
   }
 .book-form{
-  display: flex;
-
+  /*display: flex;*/
+display: inline-flex;
+  flex-wrap: wrap;
 
 }
   .grid{
