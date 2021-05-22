@@ -250,6 +250,11 @@ font-family: "Open Sans",sans-serif;
     font-weight: 300;
     color: #a5a5a5;
   }
+.book-form{
+  display: flex;
+justify-content: space-between;
+
+}
   .grid{
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
@@ -506,11 +511,7 @@ z-index: 0;
   font-size: 4.6rem;
 }
 
-.book-form{
-  display: flex;
-justify-content: space-between;
 
-}
 .book-form .input-group{
   margin-bottom: 0;
 
