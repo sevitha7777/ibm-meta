@@ -253,7 +253,7 @@ font-family: "Open Sans",sans-serif;
 .book-form{
   display: flex;
 
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
 
 }
   .grid{
