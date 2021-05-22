@@ -251,8 +251,8 @@ font-family: "Open Sans",sans-serif;
     color: #a5a5a5;
   }
 .book-form{
-  display: flex;
-justify-content:space-between;
+  /*display: flex;
+justify-content:space-between;*/
   /*flex-wrap: wrap;*/
 
 }
