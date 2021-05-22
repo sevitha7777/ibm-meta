@@ -338,6 +338,7 @@ z-index: 0;
 /*contact section styles*/
 .contact-content{
   display: flex;
+  flex-wrap:wrap;
   justify-content: center;
 }
 .traveler-wrap{
